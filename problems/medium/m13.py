@@ -1,40 +1,25 @@
-'''
-Create a program that checks whether a given number is a prime number or not.
-'''
+# Function to check if a number is prime
 def is_prime(num):
-    if num==0 or num==1:
-        b="it is not a prime number"
-        return b
-    elif num ==2 or num ==3:
-        b="it is a prime number"
-        return b
+    if num <= 1:
+        return False
+    elif num == 2 or num == 3:
+        return True
     else:
-        for i in range(2, (num//2)+1):
+        for i in range(2, (num // 2) + 1):
             if num % i == 0:
-                b="it is not a prime number"
-                return b
-                break
-            else:
-                b="it is a prime number "
-                return b
-    
+                return False
+        return True
 
-num = int(input("Enter a number: "))
-call=is_prime(num)
-print(call)
-
- 
+# Input validation loop
 while True:
     try:
         n = int(input("Enter a number: "))
         break
-    except:
-        print("Enter valid a integer.")
+    except ValueError:
+        print("Please enter a valid integer.")
 
-
+# Display the result
 if is_prime(n):
     print(f"{n} is a prime number.")
 else:
     print(f"{n} is not a prime number.")
-    
- 
